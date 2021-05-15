@@ -1,4 +1,5 @@
 # Flutter-UI-Challenges
 Thank NguyenMinhTam for nice Uis
 
-![Alt text](images/day-1/main.png?raw=true "Day 1 Main")
+# Day 1
+<img src="images/day-1/main.png" width="400" height = "700" > <img src="images/day-1/detail.png" width="400" height = "700" >

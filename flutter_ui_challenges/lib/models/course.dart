@@ -27,7 +27,7 @@ class Course {
           color: Color(0xFFFAAB3B),
           questions: [
             new Question(answered: true, title: "Buenos días"),
-            new Question(answered: false, title: "Buenas tardes"),
+            new Question(answered: true, title: "Buenas tardes"),
             new Question(answered: true, title: "Buenas noches"),
             new Question(answered: false, title: "Hola, me llamo Juan"),
             new Question(answered: true, title: "¿Cómo te llamas?"),
@@ -108,9 +108,9 @@ class Course {
           questions: [
             new Question(answered: true, title: "おはようございます"),
             new Question(answered: false, title: "こんにちは"),
-            new Question(answered: true, title: "おやすみなさい"),
+            new Question(answered: false, title: "おやすみなさい"),
             new Question(answered: false, title: "こんにちは、私の名前はフアンです"),
-            new Question(answered: true, title: "お名前は何ですか？"),
+            new Question(answered: false, title: "お名前は何ですか？"),
           ],
         ),
         new Lesson(

@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_uii_challenges/constant/layout.dart';
 import 'package:flutter_uii_challenges/models/lesson.dart';
 import 'package:flutter_uii_challenges/models/question.dart';
+import 'package:flutter_uii_challenges/screens/lesson/lesson_screen.dart';
 import 'package:get/get.dart';
 
 class LessonCard extends StatelessWidget {
@@ -19,41 +20,49 @@ class LessonCard extends StatelessWidget {
         totalAnswered++;
       }
     }
-    return Card(
-      margin: EdgeInsets.all(spacing),
-      clipBehavior: Clip.hardEdge,
-      color: Colors.white,
-      shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(spacing)),
-      child: Container(
-        width: Get.width / 2 - (spacing),
-        height: Get.width / 2 - (spacing),
-        padding: EdgeInsets.all(spacing),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            PhysicalModel(
-              color: Colors.white,
-              shape: BoxShape.circle,
-              elevation: 5.0,
-              child: Container(
-                padding: EdgeInsets.all(spacing),
-                child: SvgPicture.asset(
-                  lesson.icon,
-                  height: 24,
-                  width: 24,
+    return GestureDetector(
+      onTap: (){
+        Get.to(LessonScreen(),arguments: lesson);
+      },
+      child: Card(
+        margin: EdgeInsets.all(spacing/2),
+        clipBehavior: Clip.hardEdge,
+        color: Colors.white,
+        shape:
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(spacing)),
+        child: Container(
+          width: Get.width / 2 - (spacing),
+          height: Get.width / 2 - (spacing),
+          padding: EdgeInsets.all(spacing),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              PhysicalModel(
+                color: Colors.white,
+                shape: BoxShape.circle,
+                elevation: 4.0,
+                child: Container(
+                  padding: EdgeInsets.all(spacing),
+                  child: SvgPicture.asset(
+                    lesson.icon,
+                    height: 24,
+                    width: 24,
+                  ),
                 ),
               ),
-            ),
-            Text(
-              "${lesson.name}",
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyText1
-                  .copyWith(color: Colors.black),
-            ),
-            Text("${totalAnswered}/$totalQuestion")
-          ],
+              Spacer(),
+              Text(
+                "${lesson.name}",
+                style: Theme
+                    .of(context)
+                    .textTheme
+                    .bodyText1
+                    .copyWith(color: Colors.black),
+              ),
+              Text("${totalAnswered}/$totalQuestion"),
+              Spacer(),
+            ],
+          ),
         ),
       ),
     );

@@ -23,65 +23,64 @@ class _CourseScreenState extends State<CourseScreen> {
     Course course = Get.arguments;
     Size size = MediaQuery.of(context).size;
     final DifficultyController controller = Get.put(DifficultyController());
-    return SafeArea(
-      child: Scaffold(
-        body: Stack(
-          children: [
-            HeaderCourseBackground(course: course),
-            Scaffold(
+    return Scaffold(
+      body: Stack(
+        children: [
+          HeaderCourseBackground(course: course),
+          Scaffold(
+            backgroundColor: Colors.transparent,
+            appBar: AppBar(
+              elevation: 0,
               backgroundColor: Colors.transparent,
-              appBar: AppBar(
-                elevation: 0,
-                backgroundColor: Colors.transparent,
-                leading: IconButton(
-                  onPressed: () {
-                    Get.back();
-                  },
-                  icon: Icon(
-                    Icons.keyboard_arrow_left_rounded,
-                    color: Colors.white,
-                    size: 36,
-                  ),
-                ),
-                centerTitle: true,
-                title: Obx(
-                  () => Text(
-                    "${course.name} ${controller.difficulty.value}",
-                    style: Theme.of(context).textTheme.headline6.copyWith(
-                        color: Colors.white, fontWeight: FontWeight.normal),
-                  ),
-                ),
-                actions: [
-                  IconButton(icon: Icon(Icons.more_vert), onPressed: () {
-                  })
-                ],
-              ),
-              body: Container(
-                padding: EdgeInsets.only(
-                    top: spacing, left: spacing, right: spacing),
-                child: Expanded(
-                  child: Column(
-                    children: [
-                      HeaderCourse(course: course),
-                      SizedBox(height: spacing *2,),
-                      Expanded(
-                        child: GridView.builder(
-                            gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
-                              crossAxisCount: 2,
-                            ),
-                            itemCount: course.lessons.length,
-                            itemBuilder: (context, index) {
-                              return LessonCard(lesson: course.lessons[index]);
-                            }),
-                      )
-                    ],
-                  ),
+              leading: IconButton(
+                onPressed: () {
+                  Get.back();
+                },
+                icon: Icon(
+                  Icons.keyboard_arrow_left_rounded,
+                  color: Colors.white,
+                  size: 36,
                 ),
               ),
-            )
-          ],
-        ),
+              centerTitle: true,
+              title: Obx(
+                () => Text(
+                  "${course.name} ${controller.difficulty.value}",
+                  style: Theme.of(context).textTheme.headline6.copyWith(
+                      color: Colors.white, fontWeight: FontWeight.normal),
+                ),
+              ),
+              actions: [
+                IconButton(icon: Icon(Icons.more_vert), onPressed: () {})
+              ],
+            ),
+            body: Container(
+              padding:
+                  EdgeInsets.only(top: spacing, left: spacing, right: spacing),
+              child: Expanded(
+                child: Column(
+                  children: [
+                    HeaderCourse(course: course),
+                    SizedBox(
+                      height: spacing * 2,
+                    ),
+                    Expanded(
+                      child: GridView.builder(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 2,
+                          ),
+                          itemCount: course.lessons.length,
+                          itemBuilder: (context, index) {
+                            return LessonCard(lesson: course.lessons[index]);
+                          }),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }

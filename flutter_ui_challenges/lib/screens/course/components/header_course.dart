@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_uii_challenges/constant/layout.dart';
+import 'package:flutter_uii_challenges/controllers/difficulty_controller.dart';
 import 'package:flutter_uii_challenges/models/course.dart';
 import 'package:flutter_uii_challenges/models/lesson.dart';
 import 'package:flutter_uii_challenges/models/question.dart';
@@ -12,6 +15,7 @@ class HeaderCourse extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final DifficultyController controller = Get.find();
     int answered = 0;
     int totalQues = 0;
     for (Lesson lesson in course.lessons) {
@@ -23,13 +27,14 @@ class HeaderCourse extends StatelessWidget {
       }
     }
     return Container(
-      height: Get.width * 0.6,
+      height: Get.width * 0.4,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
                 course.name,
@@ -40,6 +45,23 @@ class HeaderCourse extends StatelessWidget {
               ),
               DiffDrop(
                 data: course,
+              ),
+              Row(
+                children: [
+                  SvgPicture.asset("assets/icons/milestone.svg",
+                      height: 26,
+                      width: 26,
+                      fit: BoxFit.cover),
+                  SizedBox(width: spacing/4,),
+                  SvgPicture.asset("assets/icons/milestone.svg",
+                      height: 26,
+                      width: 26,
+                      fit: BoxFit.cover),
+                  SizedBox(width: spacing,),
+                  Text("2 Milestones", style: Theme.of(context).textTheme.bodyText1.copyWith(
+                    color: Colors.white
+                  ),)
+                ],
               )
             ],
           ),

@@ -55,9 +55,10 @@ class LessonScreen extends StatelessWidget {
               ],
             ),
             body: Container(
-              padding: EdgeInsets.all(spacing / 2),
+              padding: EdgeInsets.all(spacing),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "Translate these phrases to Vietnamese",

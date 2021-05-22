@@ -21,21 +21,21 @@ class LessonCard extends StatelessWidget {
       }
     }
     return GestureDetector(
-      onTap: (){
-        Get.to(LessonScreen(),arguments: lesson);
+      onTap: () {
+        Get.to(LessonScreen(), arguments: lesson);
       },
       child: Card(
-        margin: EdgeInsets.all(spacing/2),
+        margin: EdgeInsets.all(spacing / 2),
         clipBehavior: Clip.hardEdge,
-        color: Colors.white,
-        shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(spacing)),
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(spacing)),
         child: Container(
           width: Get.width / 2 - (spacing),
           height: Get.width / 2 - (spacing),
           padding: EdgeInsets.all(spacing),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               PhysicalModel(
                 color: Colors.white,
@@ -50,17 +50,25 @@ class LessonCard extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(),
               Text(
                 "${lesson.name}",
-                style: Theme
-                    .of(context)
+                style: Theme.of(context)
                     .textTheme
                     .bodyText1
                     .copyWith(color: Colors.black),
               ),
-              Text("${totalAnswered}/$totalQuestion"),
-              Spacer(),
+              Text("$totalAnswered/$totalQuestion"),
+              Container(
+                clipBehavior: Clip.hardEdge,
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                child: LinearProgressIndicator(
+                  value: totalAnswered / totalQuestion,
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    lesson.color,
+                  ),
+                ),
+              ),
             ],
           ),
         ),

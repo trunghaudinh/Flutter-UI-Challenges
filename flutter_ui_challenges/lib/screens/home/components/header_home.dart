@@ -6,6 +6,7 @@ class HeaderHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
+        padding: EdgeInsets.all(spacing),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

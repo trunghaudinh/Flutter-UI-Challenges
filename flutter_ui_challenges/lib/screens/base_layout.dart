@@ -4,7 +4,7 @@ import 'package:flutter_uii_challenges/constants/layout.dart';
 import 'package:get/get.dart';
 
 class BaseLayout extends StatelessWidget {
-  final int backgroundColor;
+  final Color backgroundColor;
 
   final Widget headerWidget;
   final Widget bodyWidget;
@@ -33,7 +33,6 @@ class BaseLayout extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Container(
-                  padding: EdgeInsets.all(spacing),
                   height: Get.height * 0.4,
                   width: Get.width,
                   child: headerWidget,
@@ -42,7 +41,7 @@ class BaseLayout extends StatelessWidget {
                     child: Stack(
                   children: [
                     Container(
-                      margin: EdgeInsets.only(top: (Get.height * 0.15)/2.5),
+                      margin: EdgeInsets.only(top: (Get.height * 0.15) / 2.5),
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
                           color: Colors.white,

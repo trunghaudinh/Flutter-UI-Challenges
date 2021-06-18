@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_uii_challenges/screen/login/login_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -9,12 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Challenges Day 4',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Text('Flutter Demo Home Page'),
+      home: LoginScreen(),
     );
   }
 }
-

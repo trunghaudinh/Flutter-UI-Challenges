@@ -25,7 +25,7 @@ class Tabs extends StatelessWidget {
           labelStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
           labelColor: Colors.black,
           unselectedLabelColor: Colors.white,
-          onTap: (tap) {},
+          onTap: press,
           tabs: [Tab(text: "Morning Login"), Tab(text: "Night Login")],
         ),
       ),

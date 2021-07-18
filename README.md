@@ -6,3 +6,6 @@ Thank NguyenMinhTam for nice Uis
 
 # Day 2
 <img src="images/day-2/day2-home.png" width="400" height = "700" > <img src="images/day-2/day2-course.png" width="400" height = "700" > <img src="images/day-2/day2-lesson.png" width="400" height = "700" >
+
+# Day 4
+<img src="images/day-4/day-4.gif" width="400" height = "700" >
